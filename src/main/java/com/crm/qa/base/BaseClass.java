@@ -16,14 +16,14 @@ public class BaseClass {
 
 	Properties propertiesFile;
 	public static WebDriver driver;
-	public BaseClass() throws IOException
+	public BaseClass() throws Exception
 	{
 		propertiesFile=new Properties();
 		FileInputStream ip=new FileInputStream("C:\\Users\\sufiyap\\eclipse-workspace\\DemoCRM\\src\\main\\java\\com\\crm\\qa\\config\\config.properties");
 		propertiesFile.load(ip);
 	}
 		
-	public void preliminarySetup()
+	public void intialization()
 	{
 		String browserName=propertiesFile.getProperty("browser");
 		//String url=propertiesFile.getProperty("url");
