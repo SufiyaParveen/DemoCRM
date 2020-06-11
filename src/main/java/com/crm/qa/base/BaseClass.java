@@ -14,7 +14,7 @@ import com.crm.qa.utils.TestUtils;
 
 public class BaseClass {
 
-	Properties propertiesFile;
+	public static Properties propertiesFile;
 	public static WebDriver driver;
 	public BaseClass() throws Exception
 	{
@@ -48,6 +48,5 @@ public class BaseClass {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(TestUtils.Page_Load_Time, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtils.Implicit_Wait, TimeUnit.SECONDS);
-		
 	}
 }

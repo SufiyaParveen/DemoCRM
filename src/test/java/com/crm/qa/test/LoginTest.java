@@ -2,19 +2,21 @@ package com.crm.qa.test;
 
 import static org.testng.Assert.assertEquals;
 
-import java.io.IOException;
-
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.crm.qa.base.BaseClass;
 import com.crm.qa.pages.ClassicCRM;
+import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
+import com.crm.qa.pages.SignUpPage;
 
 public class LoginTest extends BaseClass{
 	LoginPage loginPage;
 	ClassicCRM classicCRM;
+	HomePage homePage;
+	SignUpPage signUpPage;
 	
 	public LoginTest() throws Exception
 	{
@@ -27,6 +29,9 @@ public class LoginTest extends BaseClass{
 		intialization();
 		loginPage=new LoginPage();
 		classicCRM =new ClassicCRM();
+		homePage=new HomePage();
+		signUpPage= new SignUpPage();
+	
 	}
 	
 	@Test
@@ -37,11 +42,20 @@ public class LoginTest extends BaseClass{
 	}
 	
 	@Test
-	public void TestInvalidUser()
+	public void TestValidLogin()
 	{
 		loginPage.login();
+	}
+	
+	@Test
+	public void validateUser()
+	{
+		homePage.getLoggedUser();
+	}
+	@Test
+	public void TestInvalidLogin()
+	{
 		loginPage.validateInvalidUser();
-		
 	}
 	
 	@Test
@@ -64,7 +78,7 @@ public class LoginTest extends BaseClass{
 	{
 		//signUp();
 		loginPage.signUp();
-		loginPage.verifySignUpPageHeader();
+		signUpPage.verifySignUpPageHeader();
 	}
 		
 	@AfterMethod

@@ -15,6 +15,12 @@ public class TestUtils {
 	public static String verifyHeaderText(WebElement headerText)
 	{
 		return headerText.getText();
-		 
 	}
+	
+	public static void sendKeysIn(WebElement textLocation, String textToBeEntered)
+	{
+	textLocation.sendKeys(textToBeEntered);
+	}
+	
+	
 }

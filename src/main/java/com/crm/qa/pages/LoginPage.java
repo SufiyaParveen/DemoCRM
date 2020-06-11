@@ -1,7 +1,5 @@
 package com.crm.qa.pages;
 
-import java.io.IOException;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,14 +11,20 @@ import com.crm.qa.utils.TestUtils;
 public class LoginPage extends BaseClass {
 	
 	SignUpPage signUpPage;
+	HomePage homePage;
 	
 	//Object repository also called as OR
 	
-//	@FindBy(className="ui fluid large blue submit button")
-//	WebElement LoginButton;
+	@FindBy(xpath="//input[@name='email']")
+	WebElement emailTextbox;
+	
+	@FindBy(xpath="//input[@name='password']")
+	WebElement passwordTextbox;
 	
 	@FindBy(xpath="//div[@class='ui fluid large blue submit button']")
 	WebElement LoginButton;
+	
+	
 	
 	@FindBy(xpath="//div[text()='Something went wrong...']")
 	WebElement invalidUserMsgText;
@@ -49,11 +53,14 @@ public class LoginPage extends BaseClass {
 	
 	public void login()
 	{
+		TestUtils.sendKeysIn(emailTextbox, propertiesFile.getProperty("email"));
+		TestUtils.sendKeysIn(passwordTextbox, propertiesFile.getProperty("password"));
 		TestUtils.clickOn(LoginButton);
 	}
 	
 	public void validateInvalidUser()
 	{
+		TestUtils.clickOn(LoginButton);
 		String actualMsg=invalidUserMsgText.getText();
 		Assert.assertEquals(actualMsg, "Something went wrong...", "Incorrect msg text is displayed");
 	}
