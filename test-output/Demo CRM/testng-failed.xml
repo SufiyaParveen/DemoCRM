@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Demo CRM]">
+  <listeners>
+    <listener class-name="com.crm.qa.ExtentReport.ExtentReportNG"/>
+  </listeners>
+  <test thread-count="5" name="Demo CRM Testcase(failed)">
+    <classes>
+      <class name="com.crm.qa.test.HomeTest">
+        <methods>
+          <include name="validateHomePage"/>
+          <include name="setUp"/>
+          <include name="teardown"/>
+        </methods>
+      </class> <!-- com.crm.qa.test.HomeTest -->
+    </classes>
+  </test> <!-- Demo CRM Testcase(failed) -->
+</suite> <!-- Failed suite [Demo CRM] -->

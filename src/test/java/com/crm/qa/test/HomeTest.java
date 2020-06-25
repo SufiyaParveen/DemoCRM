@@ -3,15 +3,20 @@ package com.crm.qa.test;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.crm.qa.base.BaseClass;
+import com.crm.qa.pages.CalendarPage;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
+import com.crm.qa.utils.CustomListner;
 
+@Listeners(CustomListner.class)
 public class HomeTest extends BaseClass{
 	HomePage homePage;
 	LoginPage loginPage;
+	CalendarPage calendarPage;
 	
 	public HomeTest() throws Exception
 	{
@@ -27,11 +32,20 @@ public class HomeTest extends BaseClass{
 		loginPage.login();
 	}
 	
+	@Test 
+	public void validateHomePage()
+	{
+		loginPage.login();
+		String HomeURL=homePage.getPageHeader();
+		System.out.println(HomeURL);
+		Assert.assertEquals(HomeURL, "https://ui.cogmento.com/home");
+	}
+	
 	@Test
 	public void validateUser() throws Exception
 	{
 		String actulLoginPageHeaderText=homePage.getLoggedUser();
-		Assert.assertEquals(actulLoginPageHeaderText, "vibha gupta", "Incorrect msg text is displayed");
+		Assert.assertEquals(actulLoginPageHeaderText, "Test User", "Incorrect msg text is displayed");
 	}
 	
 	@Test
@@ -41,11 +55,17 @@ public class HomeTest extends BaseClass{
 	}
 	
 	@Test
-	public void clickOnMenu()
+	public void clickOnMenu() throws Exception
 	{
-		homePage.clickMenuItem("Forms");	
+		homePage.clickMenuItem(propertiesFile.getProperty("menuItem"));	
+		
+		
+		
+	//	Assert.assertEquals(obj.getClass()., propertiesFile.getProperty("menuItem"));
+	//	Assert.assertTrue(obj.toString().compareTo(propertiesFile.getProperty("menuItem")));
 	}
 	
+		
 	@AfterMethod
 	public void teardown()
 	{

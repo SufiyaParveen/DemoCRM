@@ -13,6 +13,9 @@ public class SignUpPage extends BaseClass {
 	@FindBy(xpath="//h2[contains(text(),'Register')]")
 	WebElement RegisterHeaderText;
 	
+	//@FindBy(name="action")
+	@FindBy(xpath="//button[@name='action']")
+	WebElement signUpButton;
 
 	public SignUpPage() throws Exception
 	{
@@ -25,5 +28,9 @@ public class SignUpPage extends BaseClass {
 		Assert.assertEquals(signUpPageHeader, "Register", "Incorrect page");
 	}
 	
+	public void registerUser()
+	{
+		TestUtils.clickOn(signUpButton);
+	}
 	
 }

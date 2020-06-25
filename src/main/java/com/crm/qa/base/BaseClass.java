@@ -1,7 +1,6 @@
 package com.crm.qa.base;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -9,18 +8,28 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-
 import com.crm.qa.utils.TestUtils;
 
 public class BaseClass {
 
 	public static Properties propertiesFile;
 	public static WebDriver driver;
-	public BaseClass() throws Exception
+	
+//	public EventFiringWebDriver eDriver;
+//	WebEventListner webEventListener;
+	
+	public BaseClass()
 	{
-		propertiesFile=new Properties();
-		FileInputStream ip=new FileInputStream("C:\\Users\\sufiyap\\eclipse-workspace\\DemoCRM\\src\\main\\java\\com\\crm\\qa\\config\\config.properties");
-		propertiesFile.load(ip);
+		
+		try {
+			propertiesFile=new Properties();
+			FileInputStream ip=new FileInputStream("C:\\Users\\sufiyap\\eclipse-workspace\\DemoCRM\\src\\main\\java\\com\\crm\\qa\\config\\config.properties");
+			propertiesFile.load(ip);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 		
 	public void intialization()
@@ -43,6 +52,17 @@ public class BaseClass {
 			System.setProperty("webdriver.ie.driver", "C:\\Users\\sufiyap\\eclipse-workspace\\DemoCRM\\Drivers\\IEDriverServer.exe");
 			driver=new InternetExplorerDriver();
 		}
+		
+//		eDriver=new EventFiringWebDriver(driver);
+//		
+//		try {
+//			webEventListener=new WebEventListner();
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		eDriver.register(webEventListener);
+//		driver=eDriver;
 		
 		driver.get(propertiesFile.getProperty("url"));
 		driver.manage().window().maximize();

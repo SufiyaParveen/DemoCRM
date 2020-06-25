@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.crm.qa.base.BaseClass;
@@ -11,7 +12,9 @@ import com.crm.qa.pages.ClassicCRM;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
 import com.crm.qa.pages.SignUpPage;
+import com.crm.qa.utils.CustomListner;
 
+@Listeners(CustomListner.class)
 public class LoginTest extends BaseClass{
 	LoginPage loginPage;
 	ClassicCRM classicCRM;
@@ -31,7 +34,6 @@ public class LoginTest extends BaseClass{
 		classicCRM =new ClassicCRM();
 		homePage=new HomePage();
 		signUpPage= new SignUpPage();
-	
 	}
 	
 	@Test
@@ -45,13 +47,9 @@ public class LoginTest extends BaseClass{
 	public void TestValidLogin()
 	{
 		loginPage.login();
-	}
-	
-	@Test
-	public void validateUser()
-	{
 		homePage.getLoggedUser();
 	}
+	
 	@Test
 	public void TestInvalidLogin()
 	{
@@ -62,22 +60,23 @@ public class LoginTest extends BaseClass{
 	public void TestForgotPassword()
 	{
 		loginPage.forgotPassword();
-		loginPage.verifyForgotPasswordPageHeader();
 	}
 	
 	@Test
 	public void TestClassicCRM()
 	{
 		loginPage.classicCRM();
+		
 		String classicCRMPageTitle=classicCRM.getClassicCRMPageTitle();
 		assertEquals(classicCRMPageTitle, "CRMPRO Log In Screen", "First Page title doesn't match");
+		
 	}
 	
 	@Test
 	public void TestSignUp()
 	{
 		//signUp();
-		loginPage.signUp();
+		loginPage.clickOnSignUpLink();
 		signUpPage.verifySignUpPageHeader();
 	}
 		

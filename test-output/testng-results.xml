@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="2" total="3" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="18963" started-at="2020-06-12T01:15:46 IST" finished-at="2020-06-12T01:16:05 IST">
+  <suite name="Default suite" duration-ms="27405" started-at="2020-06-25T10:25:29Z" finished-at="2020-06-25T10:25:56Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="18963" started-at="2020-06-12T01:15:46 IST" finished-at="2020-06-12T01:16:05 IST">
-      <class name="com.crm.qa.test.HomeTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.test.HomeTest@4f063c0a]" name="setUp" is-config="true" duration-ms="15150" started-at="2020-06-12T01:15:46 IST" finished-at="2020-06-12T01:16:02 IST">
+    <test name="Default test" duration-ms="27405" started-at="2020-06-25T10:25:29Z" finished-at="2020-06-25T10:25:56Z">
+      <class name="com.crm.qa.test.ContactsTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.crm.qa.test.ContactsTest@77caeb3e]" name="setUp" is-config="true" duration-ms="26803" started-at="2020-06-25T15:55:29Z" finished-at="2020-06-25T15:55:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="clickOnMenu()[pri:0, instance:com.crm.qa.test.HomeTest@4f063c0a]" name="clickOnMenu" duration-ms="3761" started-at="2020-06-12T01:16:02 IST" finished-at="2020-06-12T01:16:05 IST">
+        <test-method status="PASS" signature="ValidateCreateContactPage()[pri:0, instance:com.crm.qa.test.ContactsTest@77caeb3e]" name="ValidateCreateContactPage" duration-ms="564" started-at="2020-06-25T15:55:55Z" finished-at="2020-06-25T15:55:56Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- clickOnMenu -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.crm.qa.test.HomeTest@4f063c0a]" name="teardown" is-config="true" duration-ms="0" started-at="2020-06-12T01:16:05 IST" finished-at="2020-06-12T01:16:05 IST">
+        </test-method> <!-- ValidateCreateContactPage -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.crm.qa.test.ContactsTest@77caeb3e]" name="teardown" is-config="true" duration-ms="0" started-at="2020-06-25T15:55:56Z" finished-at="2020-06-25T15:55:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- com.crm.qa.test.HomeTest -->
+      </class> <!-- com.crm.qa.test.ContactsTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
