@@ -3,8 +3,6 @@ package com.crm.qa.pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
-
 import com.crm.qa.base.BaseClass;
 import com.crm.qa.utils.TestUtils;
 
@@ -22,12 +20,19 @@ public class SignUpPage extends BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void verifySignUpPageHeader()
+	/** Reads SignUp page header text
+	 * 
+	 * @return SignUp page header text as String 
+	 */
+	public String verifySignUpPageHeader()
 	{
 		String signUpPageHeader= TestUtils.verifyHeaderText(RegisterHeaderText);
-		Assert.assertEquals(signUpPageHeader, "Register", "Incorrect page");
+		return signUpPageHeader;
+		
 	}
-	
+	/** Clicks on Register User link   
+	 * @return Nothing to be returned 
+	 */
 	public void registerUser()
 	{
 		TestUtils.clickOn(signUpButton);

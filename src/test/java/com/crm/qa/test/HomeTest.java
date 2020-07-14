@@ -1,7 +1,6 @@
 package com.crm.qa.test;
 
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -53,24 +52,4 @@ public class HomeTest extends BaseClass{
 	{
 		homePage.getMenuList();
 	}
-	
-	@Test
-	public void clickOnMenu() throws Exception
-	{
-		homePage.clickMenuItem(propertiesFile.getProperty("menuItem"));	
-		
-		
-		
-	//	Assert.assertEquals(obj.getClass()., propertiesFile.getProperty("menuItem"));
-	//	Assert.assertTrue(obj.toString().compareTo(propertiesFile.getProperty("menuItem")));
-	}
-	
-		
-	@AfterMethod
-	public void teardown()
-	{
-		driver.quit();
-	}
-	
-	
 }

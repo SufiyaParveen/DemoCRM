@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Demo CRM">
+
+<listeners>
+		<listener class-name="com.crm.qa.ExtentReport.ExtentReportNG" />
+</listeners>
+
+  <test name="Demo CRM Testcase">
+    <classes>
+   		<class name="com.crm.qa.test.LoginTest"/>
+      	<class name="com.crm.qa.test.HomeTest"/>
+      	<class name="com.crm.qa.test.ContactsTest"/>
+      	    </classes>
+  </test>
+</suite>

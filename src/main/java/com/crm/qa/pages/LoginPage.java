@@ -1,12 +1,8 @@
 package com.crm.qa.pages;
 
-import static org.testng.Assert.assertEquals;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
-
 import com.crm.qa.base.BaseClass;
 import com.crm.qa.utils.TestUtils;
 
@@ -49,6 +45,9 @@ public class LoginPage extends BaseClass {
 
 //Actions: Methods/Features
 	
+	/** Fetches user credentials and log into the application   
+	 * @return Nothing to be returned 
+	 */
 	public void login()
 	{
 		TestUtils.sendKeysIn(emailTextbox, propertiesFile.getProperty("email"));
@@ -56,35 +55,39 @@ public class LoginPage extends BaseClass {
 		TestUtils.clickOn(LoginButton);
 	}
 	
-	public void validateInvalidUser()
+	/** Validates the Invalid user and reads error message  
+	 * @return String of error message
+	 */
+	public String validateInvalidUser()
 	{
 		TestUtils.clickOn(LoginButton);
 		String actualMsg=invalidUserMsgText.getText();
-		Assert.assertEquals(actualMsg, "Something went wrong...", "Incorrect msg text is displayed");
+		return actualMsg;
 	}
 	
-	public String getPageTitle()
-	{
-		return driver.getTitle();
-	}
-	
-	public void forgotPassword()
+	/** Clicks on Forgot Password link and fetches page header text on "Forgot Password" page 
+	 * @return Forgot Password Page Header text as a String 
+	 */	
+	public String forgotPassword()
 	{
 		TestUtils.clickOn(forgotPasswordLink);
 		String ActualForgotPasswordPageHeader= TestUtils.verifyHeaderText(forgotPasswordPageHeader);
-		Assert.assertEquals(ActualForgotPasswordPageHeader, "Forgot my password", "Incorrect page");
+		return ActualForgotPasswordPageHeader;
 	}
 	
+	/** Clicks on classicCRM link  
+	 * @return Nothing to be returned 
+	 */
 	public void classicCRM()
 	{
 		TestUtils.clickOn(classicCRMLink);
-		
 	}
 	
+	/** Clicks on SignUp link   
+	 * @return Nothing to be returned 
+	 */
 	public void clickOnSignUpLink()
 	{
 		TestUtils.clickOn(signUpLink);
 	}
-	
-	
 }
